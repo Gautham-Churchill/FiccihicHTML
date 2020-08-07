@@ -688,33 +688,33 @@ span.middot {
 }
 
 .auditorium {
-    width: 40px;
-    height: 40px;
+    width: 2.3vw;
+    height: 2.3vw;
     background: url(img/entericon.png);
     background-size: cover;
     position: absolute;
-    left: 30%;
-    top: 52%;
+    left: 30vw;
+    top: 27vw;
 }
 
 .networking_lounge {
-    width: 40px;
-    height: 40px;
+    width: 2.3vw;
+    height: 2.3vw;
     background: url(img/entericon.png);
     background-size: cover;
     position: absolute;
-    left: 47%;
-    top: 43%;
+    left: 49vw;
+    top: 23.5vw;
 }
 
 .exhibition_hall {
-    width: 40px;
-    height: 40px;
+    width: 2.3vw;
+    height: 2.3vw;
     background: url(img/entericon.png);
     background-size: cover;
     position: absolute;
-    left: 57%;
-    top: 42%;
+    left: 65vw;
+    top: 23.5vw;
 }
 
 .fullscreen {
