@@ -34,6 +34,6 @@ Talk.ready.then(function() {
         me: me
     });
 
-    var inbox = window.talkSession.createInbox();
+    var inbox = window.talkSession.createInbox({ showFeedHeader: false });
     inbox.mount(document.getElementById("inbox-container"));
 });
