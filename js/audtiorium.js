@@ -57,8 +57,7 @@ function appendUser() {
                 ' <i class="' + user_status + '"></i></object></div>' +
                 ' <div class="title"><a href="#">' + user[i].first_name + ' ' + user[i].last_name + '</a></div> <div class="desc">' + user[i].desgination +
                 ' </div> <div class="desc"> ' + user[i].name_of_organisation + '</div><div class="bottom"> ' + linkedin_link + twitter_link +
-                ' <a class="" href="#" data-dismiss="modal" onclick=startConversation(' + user[i].id + ',\"' + user[i].first_name +
-                '\");><img src="img/chat-icon.png" width="22" /></a> </div></div></div>'));
+                ' <a class="" href="inbox.html?id=' + user[i].id + '"><img src="img/chat-icon.png" width="22" /></a> </div></div></div>'));
         } else if (user[i].linkedin_link !== null && user[i].twitter_link === null) {
             $(".clear").after($('<div class="col-lg-4 col-sm-6"> <div class="card hovercard"> <div class="cardheader"> </div> <div class="info"> ' +
                 '<div class="avatar"> <object data="img' + user[i].image + '" type="image/png"> ' +
@@ -66,8 +65,7 @@ function appendUser() {
                 ' <i class="' + user_status + '"></i></object></div>' +
                 ' <div class="title"><a href="#">' + user[i].first_name + ' ' + user[i].last_name + '</a></div> <div class="desc">' + user[i].desgination +
                 ' </div> <div class="desc"> ' + user[i].name_of_organisation + '</div><div class="bottom"> ' + linkedin_link +
-                ' <a class="" href="#" data-dismiss="modal" onclick=startConversation(' + user[i].id + ',\"' + user[i].first_name +
-                '\");><img src="img/chat-icon.png" width="22" /></a> </div></div></div>'));
+                ' <a class="" href="inbox.html?id=' + user[i].id + '" ><img src="img/chat-icon.png" width="22" /></a> </div></div></div>'));
         } else if (user[i].linkedin_link === null && user[i].twitter_link !== null) {
             $(".clear").after($('<div class="col-lg-4 col-sm-6"> <div class="card hovercard"> <div class="cardheader"> </div> <div class="info"> ' +
                 '<div class="avatar"> <object data="img' + user[i].image + '" type="image/png"> ' +
@@ -75,8 +73,7 @@ function appendUser() {
                 ' <i class="' + user_status + '"></i></object></div>' +
                 ' <div class="title"><a href="#">' + user[i].first_name + ' ' + user[i].last_name + '</a></div> <div class="desc">' + user[i].desgination +
                 ' </div> <div class="desc"> ' + user[i].name_of_organisation + '</div><div class="bottom"> ' + twitter_link +
-                ' <a class="" href="#" data-dismiss="modal" onclick=startConversation(' + user[i].id + ',\"' + user[i].first_name +
-                '\");><img src="img/chat-icon.png" width="22" /></a> </div></div></div>'));
+                ' <a class="" href="inbox.html?id=' + user[i].id + '"><img src="img/chat-icon.png" width="22" /></a> </div></div></div>'));
         } else {
             $(".clear").after($('<div class="col-lg-4 col-sm-6"> <div class="card hovercard"> <div class="cardheader"> </div> <div class="info"> ' +
                 '<div class="avatar"> <object data="img' + user[i].image + '" type="image/png"> ' +
@@ -84,8 +81,7 @@ function appendUser() {
                 ' <i class="' + user_status + '"></i></object></div>' +
                 ' <div class="title"><a href="#">' + user[i].first_name + ' ' + user[i].last_name + '</a></div> <div class="desc">' + user[i].desgination +
                 ' </div> <div class="desc"> ' + user[i].name_of_organisation + '</div><div class="bottom"> ' +
-                ' <a class="" href="#" data-dismiss="modal" onclick=startConversation(' + user[i].id + ',\"' + user[i].first_name +
-                '\");><img src="img/chat-icon.png" width="22" /></a> </div></div></div>'));
+                ' <a class="" href="inbox.html?id=' + user[i].id + '"><img src="img/chat-icon.png" width="22" /></a> </div></div></div>'));
         }
 
     }

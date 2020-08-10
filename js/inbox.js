@@ -24,25 +24,19 @@
 })(window, document, []);
 var inbox = null;
 Talk.ready.then(function() {
-    var id = "999";
-    var name = "Jermia"
     var me = new Talk.User({
         id: "123456",
         name: "RishirajMedia",
         role: "event_organiser",
-    });
-    var otherUser = new Talk.User({
-        id: id,
-        name: name,
     });
     window.talkSession = new Talk.Session({
         appId: "tM11CHH8",
         me: me
     });
 
-    var conversation = window.talkSession.getOrCreateConversation(Talk.oneOnOneId(me, otherUser));
-    conversation.setParticipant(me);
-    conversation.setParticipant(otherUser);
+    //var conversation = window.talkSession.getOrCreateConversation(Talk.oneOnOneId(me, otherUser));
+    //conversation.setParticipant(me);
+    //conversation.setParticipant(otherUser);
     inbox = window.talkSession.createInbox({ showFeedHeader: false });
     inbox.mount(document.getElementById("inbox-container"));
 });
@@ -283,43 +277,59 @@ function appendUser() {
         } else {
             twitter_link = null;
         }
+        name = user[i].first_name + user[i].last_name
+        console.log(name);
         if (user[i].linkedin_link !== null && user[i].twitter_link !== null) {
             $(".clear").after($('<div class="col-lg-4 col-sm-6"> <div class="card hovercard"> <div class="cardheader"> </div> <div class="info"> ' +
                 '<div class="avatar"> <object data="img' + user[i].image + '" type="image/png"> ' +
-                ' <img alt="' + user[i].first_name + ' ' + user[i].last_name + '" src="img/user.jpg"> ' +
+                ' <img alt="' + user[i].first_name + user[i].last_name + '" src="img/user.jpg"> ' +
                 ' <i class="' + user_status + '"></i></object></div>' +
                 ' <div class="title"><a href="#">' + user[i].first_name + ' ' + user[i].last_name + '</a></div> <div class="desc">' + user[i].desgination +
                 ' </div> <div class="desc"> ' + user[i].name_of_organisation + '</div><div class="bottom"> ' + linkedin_link + twitter_link +
-                ' <a class="" href="#" data-dismiss="modal" onclick=startConversation(' + user[i].id + ',\"' + user[i].first_name +
-                '\");><img src="img/chat-icon.png" width="22" /></a> </div></div></div>'));
+                ' <a class="" href="#" data-dismiss="modal" onclick=startConversation(' + user[i].id + ',\"' + name + '\");><img src="img/chat-icon.png" width="22" /></a> </div></div></div>'));
         } else if (user[i].linkedin_link !== null && user[i].twitter_link === null) {
             $(".clear").after($('<div class="col-lg-4 col-sm-6"> <div class="card hovercard"> <div class="cardheader"> </div> <div class="info"> ' +
                 '<div class="avatar"> <object data="img' + user[i].image + '" type="image/png"> ' +
-                ' <img alt="' + user[i].first_name + ' ' + user[i].last_name + '" src="img/user.jpg"> ' +
+                ' <img alt="' + user[i].first_name + user[i].last_name + '" src="img/user.jpg"> ' +
                 ' <i class="' + user_status + '"></i></object></div>' +
                 ' <div class="title"><a href="#">' + user[i].first_name + ' ' + user[i].last_name + '</a></div> <div class="desc">' + user[i].desgination +
                 ' </div> <div class="desc"> ' + user[i].name_of_organisation + '</div><div class="bottom"> ' + linkedin_link +
-                ' <a class="" href="#" data-dismiss="modal" onclick=startConversation(' + user[i].id + ',\"' + user[i].first_name +
-                '\");><img src="img/chat-icon.png" width="22" /></a> </div></div></div>'));
+                ' <a class="" href="#" data-dismiss="modal" onclick=startConversation(' + user[i].id + ',\"' + name + '\");><img src="img/chat-icon.png" width="22" /></a> </div></div></div>'));
         } else if (user[i].linkedin_link === null && user[i].twitter_link !== null) {
             $(".clear").after($('<div class="col-lg-4 col-sm-6"> <div class="card hovercard"> <div class="cardheader"> </div> <div class="info"> ' +
                 '<div class="avatar"> <object data="img' + user[i].image + '" type="image/png"> ' +
-                ' <img alt="' + user[i].first_name + ' ' + user[i].last_name + '" src="img/user.jpg"> ' +
+                ' <img alt="' + user[i].first_name + user[i].last_name + '" src="img/user.jpg"> ' +
                 ' <i class="' + user_status + '"></i></object></div>' +
                 ' <div class="title"><a href="#">' + user[i].first_name + ' ' + user[i].last_name + '</a></div> <div class="desc">' + user[i].desgination +
                 ' </div> <div class="desc"> ' + user[i].name_of_organisation + '</div><div class="bottom"> ' + twitter_link +
-                ' <a class="" href="#" data-dismiss="modal" onclick=startConversation(' + user[i].id + ',\"' + user[i].first_name +
-                '\");><img src="img/chat-icon.png" width="22" /></a> </div></div></div>'));
+                ' <a class="" href="#" data-dismiss="modal" onclick=startConversation(' + user[i].id + ',\"' + name + '\");><img src="img/chat-icon.png" width="22" /></a> </div></div></div>'));
         } else {
             $(".clear").after($('<div class="col-lg-4 col-sm-6"> <div class="card hovercard"> <div class="cardheader"> </div> <div class="info"> ' +
                 '<div class="avatar"> <object data="img' + user[i].image + '" type="image/png"> ' +
-                ' <img alt="' + user[i].first_name + ' ' + user[i].last_name + '" src="img/user.jpg"> ' +
+                ' <img alt="' + user[i].first_name + user[i].last_name + '" src="img/user.jpg"> ' +
                 ' <i class="' + user_status + '"></i></object></div>' +
                 ' <div class="title"><a href="#">' + user[i].first_name + ' ' + user[i].last_name + '</a></div> <div class="desc">' + user[i].desgination +
                 ' </div> <div class="desc"> ' + user[i].name_of_organisation + '</div><div class="bottom"> ' +
-                ' <a class="" href="#" data-dismiss="modal" onclick=startConversation(' + user[i].id + ',\"' + user[i].first_name +
-                '\");><img src="img/chat-icon.png" width="22" /></a> </div></div></div>'));
+                ' <a class="" href="#" data-dismiss="modal" onclick=startConversation(' + user[i].id + ',\"' + name + '\");><img src="img/chat-icon.png" width="22" /></a> </div></div></div>'));
         }
 
     }
+    if (window.location.search === "") {
+        console.log('No Search');
+    } else {
+        getUserDetails(window.location.search);
+    }
+}
+
+function getUserDetails(search) {
+    var search = search;
+    var name = undefined;
+    search = search.substr(1).split("=");
+    for (i = 0; i < user.length; i++) {
+        if (user[i].id === parseInt(search[1])) {
+            name = user[i].first_name + ' ' + user[i].last_name;
+            break;
+        }
+    }
+    startConversation(search[1], name);
 }
