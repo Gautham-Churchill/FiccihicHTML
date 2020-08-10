@@ -20,19 +20,11 @@
 
 </head>
 
-<body class="fadeIn" style="display: none;">
+<body class="fadeIn" style="display: none;" onload="appendUser();">
     <a class="leftbaricon" id="sidebarCollapse"><img src="img/info.png" width="22" /></a>
     <a href="#" class="logo"></a>
     <div class="top_bar">
         <a href="#" class="top_bar_logo">FICCI HIC 2020</a>
-        <!--<div class="top_bar_search">
-<div class="search">
-      <input type="text" class="searchTerm" placeholder="Search">
-      <button type="submit" class="searchButton">
-        <i class="fa fa-search"></i>
-     </button>
-   </div>
-</div>-->
         <a href="#" class="top_bar_attending" data-toggle="modal" data-target="#myModal2">
             <p><span>Now Attending</span> : 0.3k</p>
         </a>
@@ -41,26 +33,11 @@
         </a>
         <a href="#" class="top_bar_agenda" data-toggle="modal" data-target="#myModal"><img src="img/calendar-icon.png" width="24" /></a>
         <a href="#" class="top_bar_agenda"><img src="img/notifiction-icon.png" width="17" /></a>
-        <!--<div class="dropdown">
-<a href="#" class="top_bar_drop"><img src="img/topbar-arow.png" width="10" /></a>
-<div class="dropdown-content">
-    <a href="#"><img src="img/conversation-icon.png" width="18" /> Public group chat</a>
-    <a href="#"><img src="img/trophy-icon.png" width="18" /> Leadership board</a>
-  </div>
-</div>-->
     </div>
 
-
-    <a href="auditorium.html" class="auditorium"></a>
-    <a href="inbox.html" class="networking_lounge"></a>
-    <a href="exhibition/index.html" class="exhibition_hall"></a>
-
-
-
-
-
-
-
+    <a href="auditorium.html" id="auditorium" class="auditorium"></a>
+    <a href="inbox.html" id="networking_lounge" class="networking_lounge"></a>
+    <a href="exhibition/index.html" id="exhibition_hall" class="exhibition_hall"></a>
 
     <div class="right-iconbar">
         <a href="#" class="profile">
@@ -96,8 +73,6 @@
         <div class="dropup" style="float:right; width:6px;">
             <a href="#" class="menu-icon" style="margin-top:-5px;"><img src="img/dots.png" width="6" style="margin-top:10px;" /></a>
             <div class="dropup-content">
-                <!--<a href="#"><img src="img/briefcase-icon.png" width="18" />  Briefcase</a>
-    <a href="#"><img src="img/feedback-icon.png" width="18" />  Feedback</a>-->
                 <a href="#"><img src="img/helpdesk-icon.png" width="18" /> Helpdesk</a>
                 <a href="#" data-toggle="modal" data-target="#myModal2"><img src="img/attendee-icon.png" width="18" /> Attedee List</a>
             </div>
@@ -186,62 +161,11 @@
 
                 </div>
 
-
-                <!--<div>
-
-<div class="speaker_main">
-<img src="img/speaker1.jpg" />
-<h4>Jonathon Doe</h4>
-<p>Ceo of LogicHunt</p>
-</div>
-<div class="speaker_main">
-<img src="img/speaker1.jpg" />
-<h4>Jonathon Doe</h4>
-<p>Ceo of LogicHunt</p>
-</div>
-</div>-->
-                <!--<div>
-<div class="speaker_main">
-<img src="img/speaker1.jpg" />
-<h4>Jonathon Doe</h4>
-<p>Ceo of LogicHunt</p>
-</div>
-<div class="speaker_main">
-<img src="img/speaker1.jpg" />
-<h4>Jonathon Doe</h4>
-<p>Ceo of LogicHunt</p>
-</div>
-<div class="speaker_main">
-<img src="img/speaker1.jpg" />
-<h4>Jonathon Doe</h4>
-<p>Ceo of LogicHunt</p>
-</div>
-</div>-->
-
             </div>
             <div id="sponsorstab" class="w3-container city" style="display:none">
                 <div class="past_sponsors">
                     <img src="img/past-sponsors.jpg" />
                 </div>
-                <!--<div>
-<h4 class="sponsor_main_h4">Event Partner</h4>
-<div class="sponsor_main"><img src="img/sponsor-logo1.png" /></div>
-<div class="sponsor_main"><img src="img/sponsor-logo2.png" /></div>
-<div class="sponsor_main"><img src="img/sponsor-logo1.png" /></div>
-<div class="clear"></div>
-</div>
-<div>
-<h4 class="sponsor_main_h4">Supported By</h4>
-<div class="sponsor_main"><img src="img/sponsor-logo1.png" /></div>
-<div class="sponsor_main"><img src="img/sponsor-logo2.png" /></div>
-<div class="sponsor_main"><img src="img/sponsor-logo1.png" /></div>
-<div class="clear"></div>
-</div>
-<div>
-<div class="sponsor_main"><img src="img/sponsor-logo1.png" /></div>
-<div class="sponsor_main"><img src="img/sponsor-logo2.png" /></div>
-<div class="sponsor_main"><img src="img/sponsor-logo1.png" /></div>
-</div>-->
             </div>
 
             <div id="contacttab" class="w3-container city" style="display:none">
@@ -320,9 +244,6 @@
 
                     </div>
                 </div>
-                <!--<div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>-->
             </div>
 
         </div>
@@ -336,142 +257,24 @@
                     <div class="container">
                         <div class="row">
                             <button type="button" class="close pro-close" data-dismiss="modal">&times;</button>
-                            <div class="col-lg-1 col-sm-1">Sort</div>
-                            <div class="col-lg-4 col-sm-6">
-                                <select class="pro-select">
-    <option value="0">All</option>
-    
-  </select>
-                            </div>
                             <div class="col-lg-4 col-sm-6">
                                 <div class="search">
+                                    <h5 class="modal-title">Users</h5>
                                     <input type="text" class="searchTerm" placeholder="Search">
-                                    <button type="submit" class="searchButton">
-        <i class="fa fa-search"></i>
-     </button>
+                                    <button type="submit" class="searchButton"><i class="fa fa-search"></i></button>
                                 </div>
                             </div>
 
                             <div class="pro-bor-bot"></div>
                             <div class="clear"></div>
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="card hovercard">
-                                    <div class="cardheader"> </div>
-                                    <div class="info">
-                                        <div class="avatar"> <img alt="" src="http://lorempixel.com/100/100/people/9/"> </div>
-                                        <div class="title"> <a target="_blank" href="https://scripteden.com/">Script Eden</a> </div>
-                                        <div class="desc">Passionate designer</div>
-                                        <div class="desc">Curious developer</div>
-                                        <div class="desc">Tech geek</div>
-                                        <div class="bottom">
-                                            <a class="" href="#" style="margin-right:5px;"><img src="img/in.png" width="18" /></a>
-                                            <a class="" href="#" style="margin-right:5px;"><img src="img/tw.png" width="20" /></a>
-                                            <a class="" href="#"><img src="img/chat-icon.png" width="22" /></a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="card hovercard">
-                                    <div class="cardheader"> </div>
-                                    <div class="info">
-                                        <div class="avatar"> <img alt="" src="http://lorempixel.com/100/100/people/9/"> </div>
-                                        <div class="title"> <a target="_blank" href="https://scripteden.com/">Script Eden</a> </div>
-                                        <div class="desc">Passionate designer</div>
-                                        <div class="desc">Curious developer</div>
-                                        <div class="desc">Tech geek</div>
-                                        <div class="bottom">
-                                            <a class="" href="#" style="margin-right:5px;"><img src="img/in.png" width="18" /></a>
-                                            <a class="" href="#" style="margin-right:5px;"><img src="img/tw.png" width="20" /></a>
-                                            <a class="" href="#"><img src="img/chat-icon.png" width="22" /></a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="card hovercard">
-                                    <div class="cardheader"> </div>
-                                    <div class="info">
-                                        <div class="avatar"> <img alt="" src="http://lorempixel.com/100/100/people/9/"> </div>
-                                        <div class="title"> <a target="_blank" href="https://scripteden.com/">Script Eden</a> </div>
-                                        <div class="desc">Passionate designer</div>
-                                        <div class="desc">Curious developer</div>
-                                        <div class="desc">Tech geek</div>
-                                        <div class="bottom">
-                                            <a class="" href="#" style="margin-right:5px;"><img src="img/in.png" width="18" /></a>
-                                            <a class="" href="#" style="margin-right:5px;"><img src="img/tw.png" width="20" /></a>
-                                            <a class="" href="#"><img src="img/chat-icon.png" width="22" /></a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="card hovercard">
-                                    <div class="cardheader"> </div>
-                                    <div class="info">
-                                        <div class="avatar"> <img alt="" src="http://lorempixel.com/100/100/people/9/"> </div>
-                                        <div class="title"> <a target="_blank" href="https://scripteden.com/">Script Eden</a> </div>
-                                        <div class="desc">Passionate designer</div>
-                                        <div class="desc">Curious developer</div>
-                                        <div class="desc">Tech geek</div>
-                                        <div class="bottom">
-                                            <a class="" href="#" style="margin-right:5px;"><img src="img/in.png" width="18" /></a>
-                                            <a class="" href="#" style="margin-right:5px;"><img src="img/tw.png" width="20" /></a>
-                                            <a class="" href="#"><img src="img/chat-icon.png" width="22" /></a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="card hovercard">
-                                    <div class="cardheader"> </div>
-                                    <div class="info">
-                                        <div class="avatar"> <img alt="" src="http://lorempixel.com/100/100/people/9/"> </div>
-                                        <div class="title"> <a target="_blank" href="https://scripteden.com/">Script Eden</a> </div>
-                                        <div class="desc">Passionate designer</div>
-                                        <div class="desc">Curious developer</div>
-                                        <div class="desc">Tech geek</div>
-                                        <div class="bottom">
-                                            <a class="" href="#" style="margin-right:5px;"><img src="img/in.png" width="18" /></a>
-                                            <a class="" href="#" style="margin-right:5px;"><img src="img/tw.png" width="20" /></a>
-                                            <a class="" href="#"><img src="img/chat-icon.png" width="22" /></a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="card hovercard">
-                                    <div class="cardheader"> </div>
-                                    <div class="info">
-                                        <div class="avatar"> <img alt="" src="http://lorempixel.com/100/100/people/9/"> </div>
-                                        <div class="title"> <a target="_blank" href="https://scripteden.com/">Script Eden</a> </div>
-                                        <div class="desc">Passionate designer</div>
-                                        <div class="desc">Curious developer</div>
-                                        <div class="desc">Tech geek</div>
-                                        <div class="bottom">
-                                            <a class="" href="#" style="margin-right:5px;"><img src="img/in.png" width="18" /></a>
-                                            <a class="" href="#" style="margin-right:5px;"><img src="img/tw.png" width="20" /></a>
-                                            <a class="" href="#"><img src="img/chat-icon.png" width="22" /></a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
                         </div>
                     </div>
+                    <div class="modal-footer"></div>
                 </div>
-                <!--<div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>-->
             </div>
-
         </div>
+
+    </div>
     </div>
     <!-- Popups End-->
 
