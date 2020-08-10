@@ -3,14 +3,14 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Index</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Event Auditorium</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <!-- Tab -->
     <link rel="stylesheet" href="css/tab.css">
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style3.css">
-    <link rel="stylesheet" href="css//jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="assets/owlcarousel/assets/owl.theme.default.min.css">
 </head>
 
-<body style="display: none;" class="fadeIn">
+<body style="display: none;" class="fadeIn" onload="appendUser();">
     <a class="leftbaricon" id="sidebarCollapse"><img src="img/info.png" width="22" /></a>
     <a href="#" class="logo"></a>
     <div class="top_bar">
@@ -86,15 +86,19 @@
     </div>
     <iframe class="fullscreen" src="https://www.youtube.com/embed/WdeBXtc-p-E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-    <div class="right-iconbar">
-        <a href="#" class="profile">
-            <div class="profile_btn_green"></div>
-        </a>
-        <a href="#" class="right-iconbar-ml5"><img src="img/share.png" width="24" /></a>
-        <a href="#" class="right-iconbar-ml5"><img src="img/speak.png" width="24" /></a>
-        <a href="#" class="right-iconbar-ml5"><img src="img/fullscreen.png" width="24" /></a>
-        <a href="#" class="right-iconbar-nobot right-iconbar-ml5"><img src="img/setting.png" width="24" /></a>
-    </div>
+    <nav class="right-iconbar">
+        <ul class="parent-menu">
+            <li>
+                <a href="#" class="profile">
+                    <i class="profile_btn_green"></i>
+                </a>
+            </li>
+            <a href="#" class="right-iconbar-ml5"><img src="img/share.png" width="24" /></a>
+            <a href="#" class="right-iconbar-ml5"><img src="img/speak.png" width="24" /></a>
+            <a href="#" class="right-iconbar-ml5"><img src="img/fullscreen.png" width="24" /></a>
+            <a href="#" class="right-iconbar-nobot right-iconbar-ml5"><img src="img/setting.png" width="24" /></a>
+        </ul>
+    </nav>
     <div class="menu-bottom">
         <a href="lobby.html" class="menu-icon"><img src="img/lobby.png" width="36" />
             <p>Lobby</p>
@@ -129,7 +133,7 @@
     </div>
 
     <!-- Notifications -->
-    <div class="notifications_main">
+    <!-- div class="notifications_main">
         <div class="notification-div">
             <a href="#" class="close-btn"><img src="img/close-drk.png" width="16" /></a>
             <div class="user_avatar"><img src="img/atul-sahai.png"></div>
@@ -151,10 +155,12 @@
                 <p>Lorem Ipsum is simply dummy text of the printing. </p>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- comment baar -->
-    <div class="comment-baar">
+    <!-- container element in which TalkJS will display a chat UI -->
+    <button type="button" id="btn-getInTouch"></button>
+    <!-- <div class="comment-baar">
         <div class="comment-box">
             <div class="comment-div">
                 <div class="user_avatar"><img src="img/atul-sahai.png"></div>
@@ -214,7 +220,7 @@
         </div>
         <a href="#" class="comment-like"><img src="img/comment-like.png" width="22" /></a>
         <a href="#" class="comment-clap"><img src="img/comment-clap.png" width="27" /></a>
-    </div>
+    </div> -->
 
     <!-- Sidebar  -->
     <nav id="sidebar">
@@ -393,14 +399,9 @@
                     <div class="container">
                         <div class="row">
                             <button type="button" class="close pro-close" data-dismiss="modal">&times;</button>
-                            <div class="col-lg-1 col-sm-1">Sort</div>
-                            <div class="col-lg-4 col-sm-6">
-                                <select class="pro-select">
-                                      <option value="0">All</option>
-                                    </select>
-                            </div>
                             <div class="col-lg-4 col-sm-6">
                                 <div class="search">
+                                    <h5 class="modal-title">Users</h5>
                                     <input type="text" class="searchTerm" placeholder="Search">
                                     <button type="submit" class="searchButton"><i class="fa fa-search"></i></button>
                                 </div>
@@ -408,115 +409,6 @@
 
                             <div class="pro-bor-bot"></div>
                             <div class="clear"></div>
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="card hovercard">
-                                    <div class="cardheader"> </div>
-                                    <div class="info">
-                                        <div class="avatar"> <img alt="" src="http://lorempixel.com/100/100/people/9/"> </div>
-                                        <div class="title"> <a target="_blank" href="https://scripteden.com/">Script Eden</a> </div>
-                                        <div class="desc">Passionate designer</div>
-                                        <div class="desc">Curious developer</div>
-                                        <div class="desc">Tech geek</div>
-                                        <div class="bottom">
-                                            <a class="" href="#" style="margin-right:5px;"><img src="img/in.png" width="18" /></a>
-                                            <a class="" href="#" style="margin-right:5px;"><img src="img/tw.png" width="20" /></a>
-                                            <a class="" href="#"><img src="img/chat-icon.png" width="22" /></a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="card hovercard">
-                                    <div class="cardheader"> </div>
-                                    <div class="info">
-                                        <div class="avatar"> <img alt="" src="http://lorempixel.com/100/100/people/9/"> </div>
-                                        <div class="title"> <a target="_blank" href="https://scripteden.com/">Script Eden</a> </div>
-                                        <div class="desc">Passionate designer</div>
-                                        <div class="desc">Curious developer</div>
-                                        <div class="desc">Tech geek</div>
-                                        <div class="bottom">
-                                            <a class="" href="#" style="margin-right:5px;"><img src="img/in.png" width="18" /></a>
-                                            <a class="" href="#" style="margin-right:5px;"><img src="img/tw.png" width="20" /></a>
-                                            <a class="" href="#"><img src="img/chat-icon.png" width="22" /></a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="card hovercard">
-                                    <div class="cardheader"> </div>
-                                    <div class="info">
-                                        <div class="avatar"> <img alt="" src="http://lorempixel.com/100/100/people/9/"> </div>
-                                        <div class="title"> <a target="_blank" href="https://scripteden.com/">Script Eden</a> </div>
-                                        <div class="desc">Passionate designer</div>
-                                        <div class="desc">Curious developer</div>
-                                        <div class="desc">Tech geek</div>
-                                        <div class="bottom">
-                                            <a class="" href="#" style="margin-right:5px;"><img src="img/in.png" width="18" /></a>
-                                            <a class="" href="#" style="margin-right:5px;"><img src="img/tw.png" width="20" /></a>
-                                            <a class="" href="#"><img src="img/chat-icon.png" width="22" /></a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="card hovercard">
-                                    <div class="cardheader"> </div>
-                                    <div class="info">
-                                        <div class="avatar"> <img alt="" src="http://lorempixel.com/100/100/people/9/"> </div>
-                                        <div class="title"> <a target="_blank" href="https://scripteden.com/">Script Eden</a> </div>
-                                        <div class="desc">Passionate designer</div>
-                                        <div class="desc">Curious developer</div>
-                                        <div class="desc">Tech geek</div>
-                                        <div class="bottom">
-                                            <a class="" href="#" style="margin-right:5px;"><img src="img/in.png" width="18" /></a>
-                                            <a class="" href="#" style="margin-right:5px;"><img src="img/tw.png" width="20" /></a>
-                                            <a class="" href="#"><img src="img/chat-icon.png" width="22" /></a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="card hovercard">
-                                    <div class="cardheader"> </div>
-                                    <div class="info">
-                                        <div class="avatar"> <img alt="" src="http://lorempixel.com/100/100/people/9/"> </div>
-                                        <div class="title"> <a target="_blank" href="https://scripteden.com/">Script Eden</a> </div>
-                                        <div class="desc">Passionate designer</div>
-                                        <div class="desc">Curious developer</div>
-                                        <div class="desc">Tech geek</div>
-                                        <div class="bottom">
-                                            <a class="" href="#" style="margin-right:5px;"><img src="img/in.png" width="18" /></a>
-                                            <a class="" href="#" style="margin-right:5px;"><img src="img/tw.png" width="20" /></a>
-                                            <a class="" href="#"><img src="img/chat-icon.png" width="22" /></a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="card hovercard">
-                                    <div class="cardheader"> </div>
-                                    <div class="info">
-                                        <div class="avatar"> <img alt="" src="http://lorempixel.com/100/100/people/9/"> </div>
-                                        <div class="title"> <a target="_blank" href="https://scripteden.com/">Script Eden</a> </div>
-                                        <div class="desc">Passionate designer</div>
-                                        <div class="desc">Curious developer</div>
-                                        <div class="desc">Tech geek</div>
-                                        <div class="bottom">
-                                            <a class="" href="#" style="margin-right:5px;"><img src="img/in.png" width="18" /></a>
-                                            <a class="" href="#" style="margin-right:5px;"><img src="img/tw.png" width="20" /></a>
-                                            <a class="" href="#"><img src="img/chat-icon.png" width="22" /></a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -530,7 +422,7 @@
     <!-- Popups End-->
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="js/jquery-3.3.1.min.js"></script>
-
+    <script src="exhibition/js/audtiorium.js"></script>
     <script type="text/javascript">
         function DropDown(el) {
             this.dd = el;

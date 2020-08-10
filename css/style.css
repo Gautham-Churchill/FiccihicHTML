@@ -555,13 +555,12 @@ span.middot {
     background-size: cover;
 }
 
-
-/*.loby_bg {
+.loby_bg {
     width: 100%;
     height: 100%;
     background: #000 url(img/loby.jpg) no-repeat;
     background-size: cover;
-}*/
+}
 
 
 /*.auditorium_bg{ width:100%; height:100%; background:#000 url(img/auditorium_bg.jpg) no-repeat;background-size: cover;}*/
@@ -621,7 +620,7 @@ span.middot {
 
 .right-iconbar {
     height: auto;
-    width: 50px;
+    width: auto;
     position: absolute;
     right: 10px;
     top: 10px;
@@ -661,7 +660,56 @@ span.middot {
     position: absolute;
     bottom: -2px;
     right: 0;
-    border: solid 1px #fff;
+}
+
+.profile_btn_away {
+    width: 10px;
+    height: 10px;
+    background: yellow;
+    border-radius: 20px;
+    position: absolute;
+    bottom: -2px;
+    right: 0;
+}
+
+.profile_btn_do_not_disturb {
+    width: 10px;
+    height: 10px;
+    background: red;
+    border-radius: 20px;
+    position: absolute;
+    bottom: -2px;
+    right: 0;
+}
+
+.user_active {
+    width: 15px;
+    height: 15px;
+    background: #0C0;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 2px;
+    right: 58px;
+}
+
+.user_away {
+    width: 15px;
+    height: 15px;
+    background: yellow;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 2px;
+    right: 58px;
+}
+
+.user_dnd {
+    width: 15px;
+    height: 15px;
+    background: red;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 2px;
+    right: 58px;
 }
 
 
@@ -693,7 +741,7 @@ span.middot {
     background: url(img/entericon.png);
     background-size: cover;
     position: absolute;
-    left: 30vw;
+    left: 31vw;
     top: 27vw;
 }
 
@@ -731,7 +779,7 @@ span.middot {
 /*----topbar------*/
 
 .top_bar {
-    width: 528px;
+    width: auto;
     height: auto;
     position: absolute;
     left: 30%;
@@ -808,6 +856,8 @@ span.middot {
     color: #9DBFAF !important;
     height: 30px;
     font-size: 14px;
+    position: absolute;
+    left: 400px;
     background-color: rgba(77, 77, 77, .9);
 }
 
@@ -824,6 +874,8 @@ span.middot {
     color: #fff;
     border-radius: 0 20px 20px 0;
     cursor: pointer;
+    position: absolute;
+    right: -430px;
     font-size: 15px;
 }
 
@@ -845,8 +897,10 @@ span.middot {
     background-color: #fff;
     padding: 10px;
     border-radius: 10px;
-    left: 0;
-    bottom: 70px;
+    left: 10px;
+    bottom: 10px;
+    width: 25%;
+    height: 45%;
     position: absolute;
 }
 
@@ -1511,4 +1565,64 @@ span.middot {
 
 .w_color {
     color: #fff !important;
+}
+
+
+/* Side menu css */
+
+.parent-menu {
+    float: right;
+    height: auto;
+    width: auto;
+}
+
+#menu ul {
+    list-style-type: none;
+}
+
+#menu ul li a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+}
+
+#menu ul li ul {
+    display: flex;
+    -webkit-transition: left 200ms ease-in;
+    -moz-transition: left 200ms ease-in;
+    -ms-transition: left 200ms ease-in;
+    transition: left 200ms ease-in;
+}
+
+#menu ul li>ul {
+    padding-top: 5px;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .6);
+    top: 0;
+    right: 50px;
+    width: 50px;
+    height: 210px;
+    z-index: -1;
+    align-items: center;
+    -webkit-transition: left 200ms ease-in;
+    -moz-transition: left 200ms ease-in;
+    -ms-transition: left 200ms ease-in;
+    transition: left 200ms ease-in;
+    border-radius: 10px;
+}
+
+#menu ul li ul li>button {
+    margin-top: 10px;
+}
+
+.new_chat {
+    width: 2.3vw;
+    height: 2.3vw;
+    background: url(img/new_chat.ico);
+    background-size: cover;
+    position: absolute;
+    left: 31vw;
+    top: 27vw;
 }

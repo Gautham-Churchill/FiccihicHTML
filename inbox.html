@@ -1,9 +1,119 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 
-<body>
-    <div id="inbox-container"></div>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inbox</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="exhibition/css/textjs.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+</head>
 
-    <script src="js/inbox.js"></script>
+<body style="background-color: #3f403f;" onload="appendUser();">
+    <a class="leftbaricon" id="sidebarCollapse"><img src="img/info.png" width="22" /></a>
+    <div class="top_bar">
+        <a href="#" class="top_bar_logo">FICCI HIC 2020</a>
+        <a href="#" class="top_bar_attending" data-toggle="modal" data-target="#myModal2">
+            <p><span>Now Attending</span> : 0.3k</p>
+        </a>
+        <a href="#" class="top_bar_attending" data-toggle="modal" data-target="#myModal2">
+            <p><span>This Location</span> : 1.2k</p>
+        </a>
+        <a href="#" class="top_bar_agenda" data-toggle="modal" data-target="#myModal"><img src="img/calendar-icon.png" width="24" /></a>
+        <div id="dd" class="wrapper-dropdown-3 top_bar_agenda" tabindex="1"><img src="img/notifiction-icon.png" width="17" />
+        </div>
+    </div>
+    <nav class="right-iconbar" id="menu">
+        <ul class="parent-menu">
+            <li>
+                <a href="#" class="profile" id="profile" onclick="profileFunction();"><i class="profile_btn_green"></i></a>
+                <ul id="profile-ul">
+                    <li onclick="changeProfileStatus('active')"><button class="profile" id="active"><i class="profile_btn_green"></i></button></li>
+                    <li onclick="changeProfileStatus('away')"><button class="profile" id="away"><i class="profile_btn_away"></i></button></li>
+                    <li onclick="changeProfileStatus('doNotDisturb')"><button class="profile" id="doNotDisturb"><i class="profile_btn_do_not_disturb"></i></button></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="right-iconbar-ml5"><img src="img/share.png" width="24" /></a>
+            </li>
+            <li>
+                <a href="#" class="right-iconbar-ml5"><img src="img/speak.png" width="24" /></a>
+            </li>
+            <li>
+                <a href="#" class="right-iconbar-ml5"><img src="img/fullscreen.png" width="24" /></a>
+            </li>
+            <li>
+                <a href="#" class="right-iconbar-nobot right-iconbar-ml5"><img src="img/setting.png" width="24" /></a>
+            </li>
+        </ul>
+    </nav>
+    <div id="inbox-container" style="position: absolute; width: 100%;height:80%; top: 9%"></div>
+    <div class="menu-bottom">
+        <a href="lobby.html" class="menu-icon"><img src="img/lobby.png" width="36" />
+            <p>Lobby</p>
+        </a>
+        <a href="#" class="menu-icon"><img src="img/falcon1hall.png" width="36" />
+            <p>Falcon 1 Hall</p>
+        </a>
+        <a href="exhibition/index.html" class="menu-icon"><img src="img/exhibition.png" width="36" />
+            <p>Exhibition</p>
+        </a>
+        <a href="#" class="menu-icon"><img src="img/irish-hall.png" width="36" />
+            <p>Irish Hall</p>
+        </a>
+        <a href="#" class="menu-icon"><img src="img/helpdesk.png" width="36" />
+            <p>Helpdesk</p>
+        </a>
+        <a href="#" class="menu-icon"><img src="img/social.png" width="36" />
+            <p>Social</p>
+        </a>
+        <a href="#" class="menu-icon"><img src="img/feedback.png" width="36" />
+            <p>Feedback</p>
+        </a>
+        <div class="dropup" style="float:right; width:6px;">
+            <a href="#" class="menu-icon" style="margin-top:-5px;"><img src="img/dots.png" width="6" style="margin-top:10px;" /></a>
+            <div class="dropup-content">
+                <a href="#"><img src="img/helpdesk-icon.png" width="18" /> Helpdesk</a>
+                <a href="#" data-toggle="modal" data-target="#myModal2"><img src="img/attendee-icon.png" width="18" /> Attedee List</a>
+            </div>
+        </div>
+    </div>
+    <!-- profile pop-->
+    <div class="modal fade" id="myModal2" role="dialog">
+        <div class="modal-dialog modal-md modal-dialog-scrollable">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <button type="button" class="close pro-close" data-dismiss="modal">&times;</button>
+                            <div class="col-lg-4 col-sm-6">
+                                <div class="search">
+                                    <h5 class="modal-title">Users</h5>
+                                    <input type="text" class="searchTerm" placeholder="Search">
+                                    <button type="submit" class="searchButton"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+
+                            <div class="pro-bor-bot"></div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <a href="#" class="new_chat"></a>
+    </div>
+    <!-- profile pop ends-->
+    <script src="bootstrap/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="bootstrap/bootstrap.min.js"></script>
+    <script src="exhibition/js/inbox.js"></script>
 </body>
 
 </html>
