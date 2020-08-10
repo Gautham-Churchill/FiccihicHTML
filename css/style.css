@@ -1620,7 +1620,7 @@ span.middot {
 .new_chat {
     width: 2.3vw;
     height: 2.3vw;
-    background: url(img/new_chat.img);
+    background: url(img/new_chat.png);
     background-size: cover;
     position: absolute;
     left: 31vw;
