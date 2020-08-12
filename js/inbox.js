@@ -335,7 +335,7 @@ function getUserDetails(search) {
 }
 
 $(document).ready(function() {
-    // setInterval(notification, 60000);
+    setInterval(notification, 60000);
 
 });
 
