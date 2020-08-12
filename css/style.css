@@ -1623,6 +1623,6 @@ span.middot {
     background: url(img/new_chat.png);
     background-size: cover;
     position: absolute;
-    right: 470px;
+    right: -430px;
     top: 850px;
 }

@@ -7,6 +7,8 @@
     <title>Inbox</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- notification -->
+    <link rel="stylesheet" href="notification/style.css">
 </head>
 
 <body style="background-color: #3f403f;" onload="appendUser();">
@@ -21,6 +23,9 @@
         </a>
         <a href="#" class="top_bar_agenda" data-toggle="modal" data-target="#myModal"><img src="img/calendar-icon.png" width="24" /></a>
         <div id="dd" class="wrapper-dropdown-3 top_bar_agenda" tabindex="1"><img src="img/notifiction-icon.png" width="17" />
+            <ul class="dropdown">
+
+            </ul>
         </div>
     </div>
     <nav class="right-iconbar" id="menu">
@@ -105,11 +110,63 @@
 
         </div>
     </div>
-    <div class="right-iconbar">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <a href="#" data-toggle="modal" data-target="#myModal2" class="new_chat"></a>
     </div>
     <!-- profile pop ends-->
     <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        function DropDown(el) {
+            this.dd = el;
+            this.placeholder = this.dd.children('span');
+            this.opts = this.dd.find('ul.dropdown > li');
+            this.val = '';
+            this.index = -1;
+            this.initEvents();
+        }
+        DropDown.prototype = {
+            initEvents: function() {
+                var obj = this;
+
+                obj.dd.on('click', function(event) {
+                    $(this).toggleClass('active').trigger('classChange');
+                    return false;
+                });
+
+                obj.dd.on('classChange', function() {
+                    var cal = $(this).attr('class');
+                    if (cal.includes('active') === false) {
+                        $('#dd ul').empty();
+                    }
+                });
+
+                obj.opts.on('click', function() {
+                    var opt = $(this);
+                    obj.val = opt.text();
+                    obj.index = opt.index();
+                    obj.placeholder.text(obj.val);
+                });
+            },
+            getValue: function() {
+                return this.val;
+            },
+            getIndex: function() {
+                return this.index;
+            }
+        }
+
+        $(function() {
+
+            var dd = new DropDown($('#dd'));
+
+            $(document).click(function() {
+                // all dropdowns
+                $('.wrapper-dropdown-3').removeClass('active');
+                $('#dd ul').empty();
+            });
+
+        });
+    </script>
     <!-- Bootstrap JS -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/inbox.js"></script>

@@ -44,45 +44,8 @@
         <!--<a href="#" class=""></a>-->
         <div id="dd" class="wrapper-dropdown-3 top_bar_agenda" tabindex="1"><img src="img/notifiction-icon.png" width="17" />
             <ul class="dropdown">
-                <li>
-                    <a href="#">
-                        <div class="top-baar-notification">
-                            <div class="user_avatar"><img src="img/atul-sahai.png"></div>
-                            <div class="comment_body">
-                                <p>Lorem Ipsum is simply dummy text of the printing. </p>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div class="top-baar-notification">
-                            <div class="user_avatar"><img src="img/atul-sahai.png"></div>
-                            <div class="comment_body">
-                                <p>Lorem Ipsum is simply dummy text of the printing. </p>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div class="top-baar-notification">
-                            <div class="user_avatar"><img src="img/atul-sahai.png"></div>
-                            <div class="comment_body">
-                                <p>Lorem Ipsum is simply dummy text of the printing. </p>
-                            </div>
-                        </div>
-                    </a>
-                </li>
             </ul>
         </div>
-        <!--<div class="dropdown">
-            <a href="#" class="top_bar_drop"><img src="img/topbar-arow.png" width="10" /></a>
-            <div class="dropdown-content">
-                <a href="#"><img src="img/conversation-icon.png" width="18" /> Public group chat</a>
-                <a href="#"><img src="img/trophy-icon.png" width="18" /> Leadership board</a>
-              </div>
-            </div>-->
     </div>
     <iframe class="fullscreen" src="https://www.youtube.com/embed/WdeBXtc-p-E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -437,8 +400,15 @@
                 var obj = this;
 
                 obj.dd.on('click', function(event) {
-                    $(this).toggleClass('active');
+                    $(this).toggleClass('active').trigger('classChange');
                     return false;
+                });
+
+                obj.dd.on('classChange', function() {
+                    var cal = $(this).attr('class');
+                    if (cal.includes('active') === false) {
+                        $('#dd ul').empty();
+                    }
                 });
 
                 obj.opts.on('click', function() {
@@ -463,6 +433,7 @@
             $(document).click(function() {
                 // all dropdowns
                 $('.wrapper-dropdown-3').removeClass('active');
+                $('#dd ul').empty();
             });
 
         });

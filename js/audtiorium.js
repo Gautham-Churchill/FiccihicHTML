@@ -271,3 +271,26 @@ function getUser() {
 
     return user;
 }
+
+$(document).ready(function() {
+    setInterval(notification, 60000);
+
+});
+
+function notification() {
+    var data = {
+        "data": [{ "name": "Aman Kumar", "Message": "Just joined the Event!" },
+            { "name": "Gautham", "Message": "Hello!" }
+        ]
+    }
+    console.log(data);
+    for (i = 0; i < data.data.length; i++) {
+        if (data.data[i].image !== undefined) {
+            $('.dropdown').append($('<li><a href="#"><div class="top-baar-notification"><div class="user_avatar"><img src=\"' + data.data[i].image + '\"></div>' +
+                '<div class="comment_body"><p>' + data.data[i].Message + '</p></div></div></a></li>'));
+        } else {
+            $('.dropdown').append($('<li><a href="#"><div class="top-baar-notification"><div class="user_avatar"><img src="img/user.jpg"></div>' +
+                '<div class="comment_body"><p>' + data.data[i].Message + '</p></div></div></a></li>'));
+        }
+    }
+}

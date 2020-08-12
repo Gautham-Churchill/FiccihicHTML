@@ -14,6 +14,8 @@
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <!-- notification -->
+    <link rel="stylesheet" href="notification/style.css">
     <!-- Owl Stylesheets -->
     <link rel="stylesheet" href="assets/owlcarousel/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/owlcarousel/assets/owl.theme.default.min.css">
@@ -32,7 +34,11 @@
             <p><span>This Location</span> : 1.2k</p>
         </a>
         <a href="#" class="top_bar_agenda" data-toggle="modal" data-target="#myModal"><img src="img/calendar-icon.png" width="24" /></a>
-        <a href="#" class="top_bar_agenda"><img src="img/notifiction-icon.png" width="17" /></a>
+        <div id="dd" class="wrapper-dropdown-3 top_bar_agenda" tabindex="1"><img src="img/notifiction-icon.png" width="17" />
+            <ul class="dropdown">
+
+            </ul>
+        </div>
     </div>
 
     <a href="auditorium.html" id="auditorium" class="auditorium"></a>
@@ -280,6 +286,59 @@
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/lobby.js"></script>
+    <script>
+        function DropDown(el) {
+            this.dd = el;
+            this.placeholder = this.dd.children('span');
+            this.opts = this.dd.find('ul.dropdown > li');
+            this.val = '';
+            this.index = -1;
+            this.initEvents();
+        }
+        DropDown.prototype = {
+            initEvents: function() {
+                var obj = this;
+
+                obj.dd.on('click', function(event) {
+                    $(this).toggleClass('active').trigger('classChange');
+                    return false;
+                });
+
+                obj.dd.on('classChange', function() {
+                    var cal = $(this).attr('class');
+                    if (cal.includes('active') === false) {
+                        $('#dd ul').empty();
+                    }
+                });
+
+                obj.opts.on('click', function() {
+                    var opt = $(this);
+                    obj.val = opt.text();
+                    obj.index = opt.index();
+                    obj.placeholder.text(obj.val);
+                });
+            },
+            getValue: function() {
+                return this.val;
+            },
+            getIndex: function() {
+                return this.index;
+            }
+        }
+
+        $(function() {
+
+            var dd = new DropDown($('#dd'));
+
+            $(document).click(function() {
+                // all dropdowns
+                $('.wrapper-dropdown-3').removeClass('active');
+                $('#dd ul').empty();
+            });
+
+        });
+    </script>
     <!-- Popper.JS -->
     <script src="js/popper.min.js"></script>
     <!-- Bootstrap JS -->
@@ -337,7 +396,6 @@
             }
         })
     </script>
-    <script src="js/lobby.js"></script>
 </body>
 
 </html>
