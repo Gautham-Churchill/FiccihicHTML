@@ -566,9 +566,6 @@ span.middot {
 /*.auditorium_bg{ width:100%; height:100%; background:#000 url(img/auditorium_bg.jpg) no-repeat;background-size: cover;}*/
 
 
-/*.auditorium_bg{ width:100%; height:100%; background:#000 url(img/auditorium_bg.jpg) no-repeat;background-size: cover;}*/
-
-
 /*.entry_gate_bg{ width:100%; height:80%; background:url(img/entry_gate.jpg) no-repeat;background-size: cover;}*/
 
 .logo {
@@ -578,7 +575,7 @@ span.middot {
     background-position: center center;
     display: block;
     margin-top: 8px;
-    position: absolute;
+    position: fixed;
     right: 3%;
     bottom: 3%;
 }
@@ -1618,11 +1615,11 @@ span.middot {
 }
 
 .new_chat {
-    width: 2.3vw;
-    height: 2.3vw;
+    width: 40px;
+    height: 40px;
     background: url(img/new_chat.png);
     background-size: cover;
     position: absolute;
-    right: -430px;
-    top: 850px;
+    right: -23.5vw;
+    margin-top: 47.5vw;
 }

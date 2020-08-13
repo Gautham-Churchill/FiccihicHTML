@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="notification/style.css">
 </head>
 
-<body style="background-color: #3f403f;" onload="appendUser();">
+<body style="background-color: #000000;" onload="appendUser();">
     <a class="leftbaricon" id="sidebarCollapse"><img src="img/info.png" width="22" /></a>
     <div class="top_bar">
         <a href="#" class="top_bar_logo">FICCI HIC 2020</a>
@@ -53,6 +53,9 @@
         </ul>
     </nav>
     <div id="inbox-container" style="position: absolute; width: 100%;height:80%; top: 9%"></div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <a href="#" data-toggle="modal" data-target="#myModal2" class="new_chat"></a>
+    </div>
     <div class="menu-bottom">
         <a href="lobby.html" class="menu-icon"><img src="img/lobby.png" width="36" />
             <p>Lobby</p>
@@ -109,9 +112,6 @@
             </div>
 
         </div>
-    </div>
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <a href="#" data-toggle="modal" data-target="#myModal2" class="new_chat"></a>
     </div>
     <!-- profile pop ends-->
     <script src="js/jquery-3.3.1.min.js"></script>
